@@ -189,11 +189,17 @@ function filterRepositories() {
 function displayStatistics(contributionsData, reposData) {
   const statisticsContainer = document.getElementById('statistics');
 
-  // Calculate the longest streak of consecutive days with contributions
-  const longestStreak = calculateLongestStreak(contributionsData);
-  document.getElementById('longestStreak').textContent = `Longest Streak: ${longestStreak} days`;
+  if (Array.isArray(contributionsData)) {
+    // Calculate the longest streak of consecutive days with contributions
+    const longestStreak = calculateLongestStreak(contributionsData);
+    document.getElementById('longestStreak').textContent = `Longest Streak: ${longestStreak} days`;
+  } else {
+    // Handle cases where contributionsData is not an array (e.g., GitHub API changes)
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.innerHTML = 'Error: Unable to fetch contributions data';
+    return;
+  }
 
-  // Calculate the most used programming language
   const mostUsedLanguage = calculateMostUsedLanguage(reposData);
   document.getElementById('mostUsedLanguage').textContent = `Most Used Language: ${mostUsedLanguage || 'Not specified'}`;
 }
