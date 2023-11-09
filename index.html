@@ -4,71 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GitHub Profile Viewer</title>
-  <!-- External CSS Styles -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Chart.js library -->
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Chart.js library CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
-  <h1>GitHub Profile Viewer</h1>
+<body class="container mt-5">
+
+  <h1 class="text-center">GitHub Profile Viewer</h1>
 
   <!-- Search Input and Button -->
-  <input type="text" id="searchInput" placeholder="Enter GitHub username">
-  <button onclick="fetchProfile()">Search</button>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="searchInput" placeholder="Enter GitHub username">
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="button" onclick="fetchProfile()">Search</button>
+    </div>
+  </div>
 
   <!-- Loading Indicator, User Info, and Error Message Containers -->
-  <div id="loadingIndicator">Loading...</div>
+  <div class="text-center" id="loadingIndicator" style="display: none;">Loading...</div>
   <div id="userInfo"></div>
-  <div id="errorMessage"></div>
+  <div id="errorMessage" class="text-danger"></div>
 
   <!-- Modal Container -->
-  <div id="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <h2 id="repoName"></h2>
-      <p id="repoDescription"></p>
-      <p id="repoLanguage"></p>
-      <p id="repoCreationDate"></p>
+  <div id="modal" class="modal" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="repoName"></h5>
+          <button type="button" class="close" onclick="closeModal()">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="repoDescription"></p>
+          <p id="repoLanguage"></p>
+          <p id="repoCreationDate"></p>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Chart Container -->
-  <div id="chartContainer"></div>
+  <div id="chartContainer" class="mt-4"></div>
 
   <!-- Recent Activity Section -->
-  <div id="activity">
+  <div id="activity" class="mt-4">
     <h2>Recent GitHub Activity</h2>
-    <ul id="activityList"></ul>
+    <ul id="activityList" class="list-group"></ul>
   </div>
 
   <!-- Repositories Section -->
-  <div id="repositories">
+  <div id="repositories" class="mt-4">
     <h2>Repositories</h2>
     <!-- Sort and Filter Options -->
-    <div id="sortFilter">
+    <div id="sortFilter" class="mb-3">
       <label for="sortCriteria">Sort by:</label>
-      <select id="sortCriteria" onchange="sortRepositories()">
+      <select class="form-control" id="sortCriteria" onchange="sortRepositories()">
         <option value="name">Name</option>
         <option value="stargazers_count">Star Count</option>
         <option value="pushed_at">Last Updated</option>
       </select>
 
-      <label for="filterLanguage">Filter by Language:</label>
-      <input type="text" id="filterLanguage" oninput="filterRepositories()">
+      <label for="filterLanguage" class="ml-3">Filter by Language:</label>
+      <input type="text" class="form-control" id="filterLanguage" oninput="filterRepositories()">
     </div>
     <!-- List of Repositories -->
-    <ul id="repositoriesList"></ul>
+    <ul id="repositoriesList" class="list-group"></ul>
   </div>
 
   <!-- Statistics Section -->
-  <div id="statistics">
+  <div id="statistics" class="mt-4">
     <h2>Statistics</h2>
     <p id="longestStreak"></p>
     <p id="mostUsedLanguage"></p>
   </div>
 
+  <!-- Bootstrap JS and Popper.js CDN (Required for Bootstrap components) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   <!-- External JavaScript -->
   <script src="main.js"></script>
 </body>
 </html>
-    
+
