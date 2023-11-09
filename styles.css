@@ -1,0 +1,118 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
+}
+
+#searchInput {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#userInfo {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+#loadingIndicator {
+  display: none;
+}
+
+#errorMessage {
+  color: red;
+}
+
+/* Modal Styles */
+#modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 20px;
+  color: #555;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Chart Styles */
+#chartContainer {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* Recent Activity Section */
+#activity {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+#activityList {
+  list-style: none;
+  padding: 0;
+}
+
+#activityList li {
+  margin-bottom: 10px;
+}
+
+/* Repositories Section */
+#repositories {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+#repositoriesList {
+  list-style: none;
+  padding: 0;
+}
+
+#repositoriesList li {
+  margin-bottom: 10px;
+}
+
+/* Sort and Filter Styles */
+#sortFilter {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+label {
+  margin-right: 10px;
+}
+
+/* Statistics Section */
+#statistics {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  }
+  
