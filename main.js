@@ -79,14 +79,21 @@ function displayRecentActivity(activityData) {
   // Clear previous activity
   activityList.innerHTML = '';
 
-  activityData.forEach(activity => {
-    const activityItem = document.createElement('li');
-    activityItem.textContent = `${activity.type} - ${new Date(activity.created_at).toLocaleString()}`;
-    activityList.appendChild(activityItem);
-  });
+  if (Array.isArray(activityData)) {
+    activityData.forEach(activity => {
+      const activityItem = document.createElement('li');
+      activityItem.textContent = `${activity.type} - ${new Date(activity.created_at).toLocaleString()}`;
+      activityList.appendChild(activityItem);
+    });
+  } else {
+    // Handle cases where activityData is not an array (e.g., GitHub API changes)
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.innerHTML = 'Error: Unable to fetch recent activity';
+  }
 }
-
-// Function to display the language distribution chart
+  
+  
+  // Function to display the language distribution chart
 function displayLanguageChart(languageCounts) {
   const chartContainer = document.getElementById('chartContainer');
 
