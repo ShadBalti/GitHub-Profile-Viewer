@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profile Viewer</title>
+  <!-- External CSS Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>GitHub Profile Viewer</h1>
+
+  <!-- Search Input and Button -->
+  <input type="text" id="searchInput" placeholder="Enter GitHub username">
+  <button onclick="fetchProfile()">Search</button>
+
+  <!-- Loading Indicator, User Info, and Error Message Containers -->
+  <div id="loadingIndicator">Loading...</div>
+  <div id="userInfo"></div>
+  <div id="errorMessage"></div>
+
+  <!-- Modal Container -->
+  <div id="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2 id="repoName"></h2>
+      <p id="repoDescription"></p>
+      <p id="repoLanguage"></p>
+      <p id="repoCreationDate"></p>
+    </div>
+  </div>
+
+  <!-- Chart Container -->
+  <div id="chartContainer"></div>
+
+  <!-- Recent Activity Section -->
+  <div id="activity">
+    <h2>Recent GitHub Activity</h2>
+    <ul id="activityList"></ul>
+  </div>
+
+  <!-- Repositories Section -->
+  <div id="repositories">
+    <h2>Repositories</h2>
+    <!-- Sort and Filter Options -->
+    <div id="sortFilter">
+      <label for="sortCriteria">Sort by:</label>
+      <select id="sortCriteria" onchange="sortRepositories()">
+        <option value="name">Name</option>
+        <option value="stargazers_count">Star Count</option>
+        <option value="pushed_at">Last Updated</option>
+      </select>
+
+      <label for="filterLanguage">Filter by Language:</label>
+      <input type="text" id="filterLanguage" oninput="filterRepositories()">
+    </div>
+    <!-- List of Repositories -->
+    <ul id="repositoriesList"></ul>
+  </div>
+
+  <!-- Statistics Section -->
+  <div id="statistics">
+    <h2>Statistics</h2>
+    <p id="longestStreak"></p>
+    <p id="mostUsedLanguage"></p>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
+    
