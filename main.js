@@ -37,6 +37,7 @@ async function fetchProfile() {
       <a href="${userData.html_url}" class="btn" target="_blank">View on GitHub</a>
     </div>
     `;
+userInfoContainer.classList.add('user-profile-container');
 
     // Fetch recent activity
     const activityResponse = await fetch(`${userData.events_url}?per_page=5`);
