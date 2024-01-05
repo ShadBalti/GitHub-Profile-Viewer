@@ -28,10 +28,10 @@ This project relies on the awesome power of Chart.js: [https://www.chartjs.org/]
 
 ### Ready to contribute?
 
-We welcome your ideas and improvements! For major changes, please open an issue first to discuss. Check out our detailed [CONTRIBUTING][CONTRIBUTING.md] guide for all the guidelines.
+We welcome your ideas and improvements! For major changes, please open an issue first to discuss. Check out our detailed [CONTRIBUTING](CONTRIBUTING.md) guide for all the guidelines.
 
 ### Open source for all:
 
-This project embraces the spirit of open collaboration under the MIT License. See the [LICENSE] file for full details.
+This project embraces the spirit of open collaboration under the MIT License. See the [LICENSE](LICENSE) file for full details.
 
 **Explore, visualize, and contribute! Let's empower the developer community together.** 
