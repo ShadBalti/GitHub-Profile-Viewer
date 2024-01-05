@@ -21,12 +21,21 @@ async function fetchProfile() {
 
     // Display user information
     userInfoContainer.innerHTML = `
-      <img src="${userData.avatar_url}" alt="Avatar">
-      <h2>${userData.name}</h2>
-      <p>${userData.bio || 'No bio available'}</p>
-      <p>Followers: ${userData.followers} | Following: ${userData.following}</p>
-      <p>Public Repositories: ${userData.public_repos}</p>
-      <a href="${userData.html_url}" target="_blank">View on GitHub</a>
+       <div>
+      <img src="${userData.avatar_url}" alt="${userData.login}'s Avatar">
+      <h2>${userData.name || userData.login}</h2>
+      <p class="lead">${userData.bio || 'No bio available'}</p>
+    </div>
+    <div class="info-section">
+      <p><strong>Followers:</strong> ${userData.followers}</p>
+      <p><strong>Following:</strong> ${userData.following}</p>
+      <p><strong>Public Repositories:</strong> ${userData.public_repos}</p>
+      <p><strong>Location:</strong> ${userData.location || 'Not specified'}</p>
+      <p><strong>Member since:</strong> ${new Date(userData.created_at).toLocaleDateString()}</p>
+    </div>
+    <div class="view-on-github">
+      <a href="${userData.html_url}" class="btn" target="_blank">View on GitHub</a>
+    </div>
     `;
 
     // Fetch recent activity
